@@ -27,10 +27,6 @@ class AdminPostsController extends Controller
     public function store(Request $request) //Request 作為提示型別的功能
     {
         Post::create($request->all());
-
-        //dump & die
-        //dd(($request)->all());
-
         return redirect()->route('admin.posts.index');
     }
 
