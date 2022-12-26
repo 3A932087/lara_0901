@@ -24,13 +24,18 @@
         </tr>
         </thead>
         <tbody>
-        @foreach(range(1, 10) as $id)
+        @foreach($posts as $post)<!--posts陣列內有幾筆資料就會重複執行幾次-->
             <tr>
-                <th scope="row" style="width: 50px">{{ $id }}</th>
-                <td>{{ '標題' . $id }}</td>
+                <th scope="row" style="width: 50px">{{ $post->id }}</th><!--印出資料表內的id欄位-->
+                <td>{{ $post->title }}</td>
                 <td style="width: 150px">
-                    <button type="button" class="btn btn-primary btn-sm">編輯</button>
-                    <button type="button" class="btn btn-danger btn-sm">刪除</button>
+                    <a href="{{route('admin.posts.edit',$post->id)}}" class="btn btn-primary btn-sm">編輯</a>
+                    <form action="{{route('admin.posts.destroy',$post->id)}}" method="post" style="display: inline-block">
+                        @method('delete')
+                        @csrf
+                        <button type="submit" class="btn btn-danger btn-sm">刪除</button>
+                    </form>
+
                 </td>
             </tr>
         @endforeach

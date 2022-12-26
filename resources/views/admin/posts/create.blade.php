@@ -15,17 +15,24 @@
         </ul>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <form>
+    <form action="{{route('admin.posts.store')}}" method="post"><!--用post方法將表單內的資料傳送到路由admin.posts.store-->
+        <!--新增一筆新的資料-->
+        <!--模擬HTML表單沒辦法做的動作(PUT、PATCH、DELETE)-->
+        <!--laravel主要是用這個方法來確認要做甚麼動作-->
+        @method('post')
+        <!--csrf驗證機制，產生隱藏的input，包含一組驗證密碼-->
+        @csrf
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">文章標題</label>
-            <input type="text" class="form-control" placeholder="請輸入文章標題">
+            <!--回傳時會把name包裝成key，填入的內容包裝成value-->
+            <input name="title" id="title" type="text" class="form-control" placeholder="請輸入文章標題"><!--單行輸入框-->
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">文章內容</label>
-            <textarea class="form-control" rows="10" placeholder="請輸入文章內容"></textarea>
+            <textarea name="content" id="content" class="form-control" rows="10" placeholder="請輸入文章內容"></textarea><!--多行輸入框-->
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <a class="btn btn-primary btn-sm" href="#">儲存</a>
+            <button class="btn btn-primary btn-sm" type="submit">儲存</button>
         </div>
     </form>
 </div>
