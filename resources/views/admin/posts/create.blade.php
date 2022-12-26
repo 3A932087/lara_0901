@@ -23,15 +23,22 @@
         <!--csrf驗證機制，產生隱藏的input，包含一組驗證密碼-->
         @csrf
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">文章標題</label>
+            <label for="title" class="form-label">文章標題</label>
             <!--回傳時會把name包裝成key，填入的內容包裝成value-->
-            <input name="title" id="title" type="text" class="form-control" placeholder="請輸入文章標題"><!--單行輸入框-->
+            <input name="title" id="title" type="text" class="form-control" placeholder="請輸入文章標題" value="{{old('title')}}"><!--單行輸入框-->
         </div>
         <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">文章內容</label>
-            <textarea name="content" id="content" class="form-control" rows="10" placeholder="請輸入文章內容"></textarea><!--多行輸入框-->
+            <label for="content" class="form-label">文章內容</label>
+            <textarea name="content" id="content" class="form-control" rows="10" placeholder="請輸入文章內容">{{old('content')}}</textarea><!--多行輸入框-->
         </div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <div class="mb-3">
+            <label for="is_feature" class="form-label">精選？</label>
+            <select id="is_feature" name="is_feature" class="form-control">
+                <option value="0">否</option>
+                <option value="1">是</option>
+            </select>
+        </div>
+        <div class="d-grid gap-md-flex justify-content-md-end">
             <button class="btn btn-primary btn-sm" type="submit">儲存</button>
         </div>
     </form>
