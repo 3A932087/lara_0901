@@ -31,7 +31,7 @@
                 <td>{{ $post->title }}</td>
                 <td style="text-align: right">{{$post->is_feature}}</td>
                 <td style="width: 150px">
-                    <a href="{{route('admin.posts.edit',$post->id)}}" class="btn btn-primary btn-sm">編輯</a>
+                    <a href="{{route('admin.posts.edit',$post->id)}}" class="btn btn-sm btn-primary">編輯</a>
                     <form action="{{route('admin.posts.destroy',$post->id)}}" method="post" style="display: inline-block">
                         @method('delete')
                         @csrf
