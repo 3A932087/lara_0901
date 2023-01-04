@@ -26,6 +26,11 @@ class AdminPostsController extends Controller
 
     public function store(Request $request) //Request 作為提示型別的功能
     {
+        $this->validate($request,[
+            'title'=>'required|min:3|max:255',
+            'content'=>'required',
+            'is_feature'=>'required|Boolean',
+        ]);
         Post::create($request->all());
         return redirect()->route('admin.posts.index');
     }
@@ -40,6 +45,11 @@ class AdminPostsController extends Controller
 
     public function update(Request $request, Post $post)
     {
+        $this->validate($request,[
+            'title'=>'required|min:3|max:255',
+            'content'=>'required',
+            'is_feature'=>'required|Boolean',
+        ]);
         $post->update($request->all());
         return redirect()->route('admin.posts.index');
         //
