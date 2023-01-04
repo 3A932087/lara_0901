@@ -8,13 +8,7 @@
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">新增文章</li>
     </ol>
-    <div class="alert alert-danger alert-dismissible" role="alert" id="liveAlert">
-        <strong>錯誤！</strong> 請修正以下問題：
-        <ul>
-            <li>錯誤 1</li>
-        </ul>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+    @include('admin.layouts.shared.error')
     <form action="{{route('admin.posts.store')}}" method="post"><!--用post方法將表單內的資料傳送到路由admin.posts.store-->
         <!--新增一筆新的資料-->
         <!--模擬HTML表單沒辦法做的動作(PUT、PATCH、DELETE)-->

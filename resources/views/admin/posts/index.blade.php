@@ -33,8 +33,8 @@
                 <td style="width: 150px">
                     <a href="{{route('admin.posts.edit',$post->id)}}" class="btn btn-sm btn-primary">編輯</a>
                     <form action="{{route('admin.posts.destroy',$post->id)}}" method="post" style="display: inline-block">
-                        @method('DELETE')   <!--{{//method_field('DELETE')}}-->
-                        @csrf   <!--{{//csrf_field()}}-->
+                        @method('DELETE')   <!--method_field('DELETE')-->
+                        @csrf   <!--//csrf_field()-->
                         <button type="submit" class="btn btn-danger btn-sm">刪除</button>
                     </form>
 
